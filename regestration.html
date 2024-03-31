@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Firebase Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .top {
+            position: relative;
+            background-color: rgba(101, 219, 221, 0.37);
+            text-align: center;
+            border-left: 25px solid rgb(10, 88, 133);
+            margin-bottom: 9px;
+            margin-left: 15px;
+            margin-top: -20px;
+            font-size: 22px;
+            color: rgba(29, 180, 240, 0.993);
+            height: 50px;
+            width: 1425px;
+            border-right: 25px solid rgb(1, 22, 35);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .bot {
+            position: relative;
+            background-color: rgba(161, 178, 179, 0.37);
+            text-align: center;
+            border-left: 25px solid rgba(8, 116, 8, 0.76);
+            margin-bottom: 9px;
+            margin-left: 15px;
+            margin-top: -20px;
+            font-size: 22px;
+            color: rgb(27, 180, 60);
+            height: 50px;
+            width: 1425px;
+            border-right: 25px solid rgb(8, 116, 8, 0.76);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("img/ola.jpg");
+            background-size: 1539px 769px
+        }
+
+        .box {
+            background-color: rgba(107, 103, 103, 0.562);
+            position: relative;
+            /* top: 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="top">
+        <font style="font-family: 'Times New Roman', Times, serif; color: rgb(24, 13, 231);">
+            <h1>SCOOTY RENTAL SYSTEM</h1>
+        </font>
+    </div><br>
+    <div class="bot">
+        <h1>FAIR CALCULATE</h1>
+    </div>
+    <center>
+        <div class="box">
+            <form id="MainForm" class="w-25 m-4">
+                <h1 class="mb-3" style="color: rgb(83, 13, 175);"><u>Scooty Registration</u></h1>
+                <!-- username -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="usernameInp" placeholder="Username">
+                    <label for="floatingPassword">Username</label>
+                </div>
+                <!-- email -->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <!-- mobile -->
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="phoneInp" placeholder="Phone No.">
+                    <label for="floatingPassword">Phone No.</label>
+                </div>
+                <!-- aadhar -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="aadharInp" placeholder="Aadhar No">
+                    <label for="floatingPassword">Aadhar No.</label>
+                </div>
+                <!-- licence -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="licenseInp" placeholder="License no.">
+                    <label for="floatingPassword">License No.</label>
+                </div>
+                <!-- no of hours -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="hoursInp" placeholder="No. of hours">
+                    <label for="floatingPassword">No. of hours</label>
+                </div>
+                <!-- no of days -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="daysInp" placeholder="No. of days">
+                    <label for="floatingPassword">No. of days</label>
+                </div>
+                <!-- Choose category -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="categoryInp" placeholder="Choose category">
+                    <label for="floatingPassword">Choose category</label>
+                </div>
+                <!-- Pick Date -->
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="pickDateInp" placeholder="Pick Date">
+                    <label for="floatingPassword">Pick Date</label>
+                </div>
+                <!-- Return date -->
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="returnDateInp" placeholder="Return Date">
+                    <label for="floatingPassword">Return Date</label>
+                </div>
+                <!--Password  -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="passwordInp" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="float: right;">Create Your Account</button>
+                <a href="login1.html"> <button type="button" class="btn btn-primary me-2 " style="float: right;">Sign
+                        In</button></a>
+            </form>
+        </div>
+    </center>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-NSaapNOc31CdJXOg2DQ0sj2WIMdAew0",
+            authDomain: "scooty-rental-system.firebaseapp.com",
+            databaseURL: "https://scooty-rental-system-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "scooty-rental-system",
+            storageBucket: "scooty-rental-system.appspot.com",
+            messagingSenderId: "256749929240",
+            appId: "1:256749929240:web:07c52d55a34de68777546d"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+        const auth = getAuth(app);
+
+        let MainForm = document.getElementById('MainForm');
+        let EmailInp = document.getElementById('emailInp');
+        let PassInp = document.getElementById('passwordInp');
+        let UsernameInp = document.getElementById('usernameInp');
+        let PhoneInp = document.getElementById('phoneInp');
+        let AadharInp = document.getElementById('aadharInp');
+        let LicenseInp = document.getElementById('licenseInp');
+        let HoursInp = document.getElementById('hoursInp');
+        let DaysInp = document.getElementById('daysInp');
+        let CategoryInp = document.getElementById('categoryInp');
+        let PickDateInp = document.getElementById('pickDateInp');
+        let ReturnDateInp = document.getElementById('returnDateInp');
+
+
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+                .then(async (credentials) => {
+                    var ref = doc(db, 'UserAuthList', credentials.user.uid);
+                    await setDoc(ref, {
+                        usernameInp: UsernameInp.value,
+                        phoneInp: PhoneInp.value,
+                        aadharInp: AadharInp.value,
+                        licenseInp: LicenseInp.value,
+                        hoursInp: HoursInp.value,
+                        daysInp: DaysInp.value,
+                        categoryInp: CategoryInp.value,
+                        pickDateInp: PickDateInp.value,
+                        returnDateInp: PickDateInp.value,
+                        emailInp: EmailInp.value,
+                        passwordInp: PassInp.value
+                    })
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+        }
+        MainForm.addEventListener('submit', RegisterUser);
+
+    </script>
+</body>
+
+</html>

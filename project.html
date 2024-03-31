@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>SCOOTY RENTAL SYSTEM </title>
+    <style>
+        /* body {background-color: } */
+        .top {
+            background-color: rgba(159, 188, 189, 0.493);
+            text-align: center;
+            border-left: 25px solid rgb(10, 88, 133);
+            margin-bottom: 9px;
+            margin-left: 15px;
+            margin-top: -30px;
+            font-size: 22px;
+            color: white;
+            height: 50px;
+            width: 1425px;
+            border-right: 25px solid rgb(10, 88, 133);
+        }
+
+        .menu {
+            background-color: rgba(56, 58, 60, 0.432);
+            border-bottom: 5px solid rgb(56, 58, 60, 0.432);
+            height: 40px;
+            width: 1509px;
+            text-align: left;
+            padding-top: 10px;
+            float: left;
+        }
+
+        p1 {
+            text-align: right;
+            font-size: 35px;
+            padding: 0px;
+            display: inline;
+            text-decoration: none;
+            margin-right: 40px;
+            color: rgba(253, 253, 253);
+        }
+
+        #menulogin {
+            text-decoration: none;
+            font-size: 35px;
+            color: rgb(253, 253, 253);
+        }
+
+        p1:hover {
+            color: #067bb1f6;
+        }
+
+        div.bottom {
+            position: sticky;
+            top: 0;
+            background-color: #dad1d1b7;
+            margin-top: 80px;
+            width: 1509px;
+            height: 50px;
+            text-align: center;
+            padding-top: 2px;
+            text-decoration: none;
+        }
+
+        p2 {
+            margin-right: 20px;
+            font-size: 33px;
+            padding: 0px;
+            margin-bottom: 1px;
+        }
+
+        p2:hover {
+            box-shadow: 0 0 9px 2px #c2bdbdd0;
+            color: #067bb1f6;
+        }
+
+        input[type=text] {
+            font-size: 28px;
+            padding: 1px;
+            margin-bottom: 2px;
+        }
+
+        #menulogin:hover {
+            color: #067bb1f6;
+        }
+
+        .search {
+            height: 510px;
+            width: 350px;
+            background-color: rgba(0, 0, 0, 0);
+            margin-top: 3PX;
+            text-align: center;
+            margin-left: 40px;
+            font-size: 29px;
+            border: 4px rgb(224, 228, 232) ridge;
+            border-radius: 3px;
+            color: #f1f1f1;
+        }
+
+
+        form {
+            margin-left: 3px;
+            padding: 1px;
+            size: 50px;
+            font-size: 35px;
+        }
+
+        input[type=email],
+        input[type=password] {
+            width: 80%;
+            padding: 15px;
+            margin: 0px 0 30px 0;
+            border: 2px ridge rgba(1, 83, 138, 0.966);
+            border-radius: 9px;
+            background: #f1f1f1;
+        }
+
+        input[type=email]:focus,
+        input[type=password]:focus {
+            background-color: rgb(235, 235, 235);
+            outline: none;
+            border: 2px ridge rgba(235, 242, 245, 0.945)
+        }
+
+        #date {
+            border: 2px solid #c4c1c1;
+            border-radius: 8px;
+            background-color: rgb(255, 255, 255);
+            padding: 5px 8px;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+            width: 180px;
+        }
+
+        .c1 {
+            margin-top: 50px;
+            margin-left: 110px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .c2 {
+            margin-top: 50px;
+            margin-left: 100px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .c3 {
+            margin-top: 50px;
+            margin-left: 100px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .c4 {
+            margin-top: 50px;
+            margin-left: 110px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .c5 {
+            margin-top: 50px;
+            margin-left: 100px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .c6 {
+            margin-top: 50px;
+            margin-left: 100px;
+            height: 500px;
+            width: 360px;
+            background-color: rgba(248, 243, 242, 0.651);
+            float: left;
+        }
+
+        .l1 {
+            margin-top: 50px;
+            margin-left: 60px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .l2 {
+            margin-top: 50px;
+            margin-left: 90px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .l3 {
+            margin-top: 50px;
+            margin-left: 90px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .l4 {
+            margin-top: 50px;
+            margin-left: 60px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .l5 {
+            margin-top: 50px;
+            margin-left: 90px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .l6 {
+            margin-top: 50px;
+            margin-left: 90px;
+            height: 350px;
+            width: 400px;
+            background-color: rgba(212, 68, 11, 0.493);
+            float: left;
+        }
+
+        .end {
+            margin-top: 50px;
+            height: 200px;
+            width: 1509px;
+            background-color: rgba(5, 134, 173, 0.877);
+            float: left;
+        }
+
+        .open {
+            height: 509px;
+            width: 1090px;
+            background-color: crimson;
+            margin-left: 410px;
+            margin-top: 6px;
+        }
+
+        #button {
+            height: 33px;
+            width: 90px;
+            border: 3px solid rgb(255, 255, 255);
+            background-color: red;
+            padding: 2px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+        }
+
+        #button:hover {
+            background-color: white;
+            color: red;
+            border-bottom-color: red;
+        }
+
+        .byt {
+            margin-left: 130px;
+        }
+
+        .but {
+            margin-left: 110px;
+        }
+
+        #inf {
+            color: rgb(121, 26, 26);
+            font-size: 20px;
+        }
+
+        #inf:hover {
+            color: rgb(244, 241, 241);
+            font-size: 25px;
+        }
+
+        #menulogin {
+            text-decoration: none;
+            font-size: 35px;
+            color: white;
+        }
+
+        #menulogin:hover {
+            color: #067bb1f6;
+        }
+
+        .search img {
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body background="img/1st background.jpg">
+    <div class="top">
+        <h1>SCOOTY RENTAL SYSTEM</h1>
+    </div>
+    <div class="menu">
+        <img src="img/Unt.png" style=" float: left; width:70px;height:36px;padding-left:20px; margin-right: 130px">
+        <p1>MANAGE BOOKING |</p1>
+        <p1><a href="#pp" style="text-decoration: none; color: white;">POPULAR LOCATION </a>|</p1>
+        <p1><a href="regestration.html" style="text-decoration: none;color: white;">SIGN UP </a>|</p1>
+        <a id="menulogin" href="login1.html">LOGIN</a>
+    </div>
+    <div class="bottom">
+        <a href="#home"> <img src="home.jpg"
+                style=" width:80px;height:30px;margin-right:50px;border: 2px ridge rgba(145, 134, 134, 0.699);margin-top:2px;"></a>
+        <p2><a href="hire_scooty.html" style="color: white; text-decoration: none;">HIRE SCOOTY </a>|</p2>
+
+      
+        <input type="text" name="text" size="30px" placeholder="SCOOTY TO DRIVE">
+        <p2>SEARCH </p2>
+    </div><br>
+    <div class="search">
+        <b>BOOK<br>YOUR JOURNEY</b><br>
+        <img src="img/scooty logo.jpg" height="80px" width="90px">
+
+        <form>
+            <input type="email" placeholder="From*" required size="70">
+            <input type="email" placeholder="To*" required minlength="8" size="70px">
+        </form>
+        <input id="date" type="date" name="dateoftravel" id="dateoftravel"><br><br>
+        <b><a href="#yy"
+                style=" text-decoration:none; font-size:25px; color: rgb(254, 255, 254); padding: 10px;background-color: rgb(180, 51, 51);margin-top: 30px; border: 4px rgb(240, 239, 222) solid; border-radius:9px;padding: 6px;">SHOW
+                SCOOTY</a></b>
+    </div>
+
+
+    <hr>
+
+    <div class="l1" id="yy">
+        <img src="img/activa.png" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">ACTIVA</a>
+        </div>
+        <b>
+            <p style="color: rgb(235, 222, 222); font-size: 25px; text-align: center;">Starting &#8377 120/Hr</p>
+        </b>
+    </div>
+
+
+    <div class="l2">
+        <img src="img/duetimage.jpg" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">DUET</a>
+        </div>
+        <b>
+            <p style="color: rgb(246, 238, 238); font-size: 25px; text-align: center;">Starting &#8377 140/Hr</p>
+        </b>
+    </div>
+
+
+    <div class="l3">
+        <img src="img/fascino.webp" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">FASCINO</a>
+        </div>
+        <b>
+            <p style="color: rgb(245, 239, 239); font-size: 25px; text-align: center;">Starting &#8377 200/Hr</p>
+        </b>
+    </div>
+
+    <div class="l4">
+        <img src="img/jupiterjupiterrightfrontthreequarter.jpg" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">JUPITER</a>
+        </div>
+        <b>
+            <p style="color: rgb(245, 238, 238); font-size: 25px; text-align: center;">Starting &#8377 150/Hr</p>
+        </b>
+    </div>
+
+
+    <div class="l5">
+        <img src="img/rayzr125image.png" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">RAYZR</a>
+        </div>
+        <b>
+            <p style="color: rgb(239, 228, 228); font-size: 25px; text-align: center;">Starting &#8377 170/Hr</p>
+        </b>
+    </div>
+
+
+    <div class="l6">
+        <img src="img/scooter.webp" style="height:230px;width: 380px; margin: 10px; ">
+        <div class="byt">
+            <a href="#button" id="button">HONDA DIO 125</a>
+        </div>
+        <b>
+            <p style="color: rgb(237, 231, 231); font-size: 25px; text-align: center;">Starting &#8377 170/Hr</p>
+        </b>
+    </div>
+
+
+
+
+    <div class="c1" id="pp">
+        <img src="img/BIHARI G.jpg" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">BIHARI JI</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 800/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Fascino,rayzr</p>
+        </div>
+    </div>
+
+
+    <div class="c2">
+        <img src="img/prem-mandir.webp" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">VRINDAVAN</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 600/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Honda dio 125</p>
+        </div>
+    </div>
+
+
+    <div class="c3">
+        <img src="img/BARSA.jpg" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">BARSANA</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 1000/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Jupiter,Duet</p>
+        </div>
+    </div>
+
+
+    <div class="c4">
+        <img src="img/GOKUL.jpg" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">GOKUL</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 950/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Activa,Duet,Jupiter</p>
+        </div>
+    </div>
+
+
+    <div class="c5">
+        <img src="img/vishram-ghat.jpg" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">MATHURA</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 650/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Rayzr,fascino</p>
+        </div>
+    </div>
+
+
+    <div class="c6">
+        <img src="img/nidhi van.jpg" style="height:180px;width: 360px;  ">
+        <div class="but">
+            <a href="#button" id="button">NIDHI VAN</a>
+        </div>
+        <b>
+            <p style="color: rgb(6, 68, 104); font-size: 40px; text-align: center;">Trip Starting:<br> &#8377 750/day
+            </p>
+        </b>
+        <div id="inf">
+            <p>Trip best with:Activa,Honda dio 125</p>
+        </div>
+    </div>
+    <div class="end"></div>
+
+
+</body>
+
+</html>

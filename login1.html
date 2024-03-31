@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SignIn Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .top {
+            position: relative;
+            background-color: rgba(101, 219, 221, 0.37);
+            text-align: center;
+            border-left: 25px solid rgb(10, 88, 133);
+            margin-bottom: 9px;
+            margin-left: 15px;
+            margin-top: -20px;
+            font-size: 22px;
+            color: rgba(29, 180, 240, 0.993);
+            height: 50px;
+            width: 1425px;
+            border-right: 25px solid rgb(1, 22, 35);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .bot {
+            position: relative;
+            background-color: rgba(161, 178, 179, 0.37);
+            text-align: center;
+            border-left: 25px solid rgba(8, 116, 8, 0.76);
+            margin-bottom: 9px;
+            margin-left: 15px;
+            margin-top: -20px;
+            font-size: 22px;
+            color: rgb(27, 180, 60);
+            height: 50px;
+            width: 1425px;
+            border-right: 25px solid rgb(8, 116, 8, 0.76);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("img/ola.jpg");
+            background-size: 1539px 769px
+        }
+
+        .box {
+            background-color: rgba(107, 103, 103, 0.562);
+            position: relative;
+            width: 70%;
+            top: 50px;
+            height: 300px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="top">
+        <font style="font-family: 'Times New Roman', Times, serif; color: rgb(24, 13, 231);">
+            
+            <h1>SCOOTY RENTAL SYSTEM</h1>
+        </font>
+    </div><br>
+    <div class="bot">
+        <h1>FAIR CALCULATE</h1>
+    </div>
+    <center>
+        <div class="box">
+            <form id="MainForm" class="w-25 m-4">
+                <h1 class="mb-3" style="color: rgb(83, 13, 175);"><u><b>Login In</b></u></h1>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="passwordInp" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="float: right;">Sign In</button>
+                <a href="regestration.html"> <button type="button" class="btn btn-primary me-2 " style="float: right;">New
+                        User</button></a>
+            </form>
+        </div>
+    </center>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-NSaapNOc31CdJXOg2DQ0sj2WIMdAew0",
+            authDomain: "scooty-rental-system.firebaseapp.com",
+            databaseURL: "https://scooty-rental-system-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "scooty-rental-system",
+            storageBucket: "scooty-rental-system.appspot.com",
+            messagingSenderId: "256749929240",
+            appId: "1:256749929240:web:07c52d55a34de68777546d"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+        const auth = getAuth(app);
+
+        let EmailInp = document.getElementById('emailInp');
+        let PassInp = document.getElementById('passwordInp');
+        let MainForm = document.getElementById('MainForm');
+
+        let SignInUser = evt => {
+            evt.preventDefault();
+
+            signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+                .then(async (credentials) => {
+                    var ref = doc(db, 'UserAuthList', credentials.user.uid);
+                    const docSnap = await getDoc(ref);
+
+                    if (docSnap.exists()) {
+                        sessionStorage.setItem('user-info', JSON.stringify({
+                            firstname: docSnap.data().firstname,
+                            lastname: docSnap.data().lastname,
+                        }))
+                        sessionStorage.setItem('user-creds', JSON.stringify(credentials.user));
+                        window.location.href = 'project.html';
+                    }
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+        }
+        MainForm.addEventListener('submit', SignInUser);
+
+    </script>
+</body>
+
+</html>
