@@ -48,7 +48,7 @@
         .box {
             background-color: rgba(107, 103, 103, 0.562);
             position: relative;
-            /* top: 10px; */
+            top: -55px;
         }
     </style>
 </head>
@@ -60,9 +60,9 @@
             <h1>SCOOTY RENTAL SYSTEM</h1>
         </font>
     </div><br>
-    <div class="bot">
+    <!-- <div class="bot">
         <h1>FAIR CALCULATE</h1>
-    </div>
+    </div> -->
     <center>
         <div class="box">
             <form id="MainForm" class="w-25 m-4">
@@ -70,7 +70,7 @@
                 <!-- username -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="usernameInp" placeholder="Username">
-                    <label for="floatingPassword">Username</label>
+                    <label for="floatingPassword">Username<font color="red">*</font></label>
                 </div>
                 <!-- email -->
                 <div class="form-floating mb-3">
@@ -80,17 +80,17 @@
                 <!-- mobile -->
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="phoneInp" placeholder="Phone No.">
-                    <label for="floatingPassword">Phone No.</label>
+                    <label for="floatingPassword">Phone No.<font color="red">*</font></label>
                 </div>
                 <!-- aadhar -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="aadharInp" placeholder="Aadhar No">
-                    <label for="floatingPassword">Aadhar No.</label>
+                    <label for="floatingPassword">Aadhar No.<font color="red">*</font></label>
                 </div>
                 <!-- licence -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="licenseInp" placeholder="License no.">
-                    <label for="floatingPassword">License No.</label>
+                    <label for="floatingPassword">License No.<font color="red">*</font></label>
                 </div>
                 <!-- no of hours -->
                 <div class="form-floating mb-3">
@@ -123,9 +123,10 @@
                     <label for="floatingPassword">Password</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="float: right;">Create Your Account</button>
-                <a href="login1.html"> <button type="button" class="btn btn-primary me-2 " style="float: right;">Sign
-                        In</button></a>
+               <button type="submit" class="btn btn-primary" style="float: center;">Create Your Account</button>
+                <!-- <a href="login1.html">
+                     <button type="button" class="btn btn-primary me-2 " style="float: right;">Sign
+                        In</button></a> -->
             </form>
         </div>
     </center>
